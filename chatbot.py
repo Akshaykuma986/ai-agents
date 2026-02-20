@@ -21,7 +21,7 @@ def chatbot():
         memory["messages"].append(user_input)
         #exit condition
         if user_input == "bye":
-            print("AI:",responses["bye"])
+            print("AI:","goodbye")
 
             break
   #history command
@@ -31,8 +31,18 @@ def chatbot():
                 print("-",msg)
             continue    
 
-       
-#smart keyword matching
+        if "sad" in user_input:
+         print("AI: I'm sorry to hear that. Want to talk about it?")
+         continue
+
+        elif "happy" in user_input:
+         print("AI: That’s great to hear! 😄")
+         continue
+
+        elif "tired" in user_input:
+         print("AI: Maybe you should take some rest 💤")
+         continue
+
         found = False
 
         for key in responses:
@@ -41,7 +51,7 @@ def chatbot():
              found = True
              break
         if not found:
-            print("AI: I dont understand yet.")
+         print("AI: I dont understand yet.")
      
 #Store conversation history
 chatbot()
