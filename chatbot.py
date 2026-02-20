@@ -4,24 +4,38 @@
 
 #Stop when user types "bye"
 def chatbot():
+    memory = {
+        "messages": []
+    }
+
     print("AI: Hello! Type 'bye' to exit.")
 
     while True:
         user_input = input("You: ").lower()
 
-        if user_input  == "bye":
-            print("AI: Goodbye")
+        memory["messages"].append(user_input)
+
+        if user_input == "bye":
+            print("AI: Goodbye 👋")
             break
+
         elif "hello" in user_input:
             print("AI: Hi there!")
 
-        elif "i love rachana or not" in user_input:
-            print("AI: of course i know you love rachana forever!")    
-        
-        elif "How are you" in user_input:
-            print("AI: I'm just code ,but I'm doing Great")
-        elif "can i ask something" in user_input:
-            print("yeah you can ask anything")
+        elif "how are you" in user_input:
+            print("AI: I'm doing great 😄")
+
         else:
-            print("AI: I dont understand that yet.")
+            print("AI: I don't understand that yet.")
+
+    print("Conversation history:", memory["messages"])
+
 chatbot()
+
+
+#Store conversation history
+
+#Count messages
+
+#Remember what user said
+
