@@ -24,7 +24,10 @@ def chatbot():
 
         elif "how are you" in user_input:
             print("AI: I'm doing great 😄")
-
+        elif "history" in user_input:
+            print("AI : Here is your conversation so far:")
+            for msg in memory["messages"]:
+             print("-",msg)
         else:
             print("AI: I don't understand that yet.")
 
