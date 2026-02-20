@@ -3,18 +3,17 @@
 #respond based on rules
 
 #Stop when user types "bye"
+import random
 def chatbot():
     memory = { 
         "messages":[]
     }
 
     responses = {
-            "hello": "Hi there!",
-            "hi": "Hello 👋",
-           "hey": "Hey 😄",
-           "how are you": "I'm doing great!",
-            "bye": "Goodbye 👋"
-        }
+    "hi": ["Hello 👋", "Hey there!", "Hi Akshay 😄"],
+    "hello": ["Hi!", "Hello friend!", "Nice to see you!"],
+    "how are you": ["I'm doing great!", "Feeling awesome!", "All good here!"]
+}
     print("AI: Hello! Type 'bye' to exit.")
 
     while True :
@@ -38,9 +37,9 @@ def chatbot():
 
         for key in responses:
             if key in user_input:
-                print("AI:",responses[key])
-                found = True
-                break
+             print("AI:",random.choice(responses[key]))   
+             found = True
+             break
         if not found:
             print("AI: I dont understand yet.")
      
