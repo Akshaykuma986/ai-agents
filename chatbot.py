@@ -17,8 +17,10 @@ def chatbot():
     print("AI: Hello! Type 'bye' to exit.")
 
     while True :
-        user_input =input("You :").lower()
-        memory["messages"].append(user_input)
+        user_input = input("You: ").lower()
+        commands = ["bye","history","count"]
+        if user_input not in commands:
+          memory["messages"].append(user_input)
         #exit condition
         if user_input == "bye":
             print("AI:","goodbye")
@@ -30,7 +32,9 @@ def chatbot():
             for msg in memory["messages"]:
                 print("-",msg)
             continue    
-
+        elif user_input == "count":
+         print("AI: You have sent", len(memory["messages"]), "messages.")
+         continue
         if "sad" in user_input:
          print("AI: I'm sorry to hear that. Want to talk about it?")
          continue
@@ -44,9 +48,9 @@ def chatbot():
          continue
 
         found = False
-
+        words = user_input.split()
         for key in responses:
-            if key in user_input:
+            if key in words:
              print("AI:",random.choice(responses[key]))   
              found = True
              break
